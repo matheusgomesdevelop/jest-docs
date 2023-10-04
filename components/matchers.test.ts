@@ -33,4 +33,28 @@ describe("Usando matches", () => {
       }
     }
   });
+
+  // Verificando valores
+  it("Deve verificar os valores corretamente", () => {
+    const n = null;
+    const m = true;
+
+    // toBeNull: corresponde a apenas null.
+    expect(n).toBeNull();
+
+    // toBeUndefined: corresponde a apenas undefined.
+    expect(n).toBeDefined();
+
+    // toBeDefined: o oposto de toBeUndefined.
+    expect(n).toBeDefined();
+
+    // toBeTruthy: combina com qualquer coisa que uma instrução if retorne TRUE.
+    expect(m).toBeTruthy();
+
+    // toBeFalse: o oposto de toBeTruthy
+    expect(n).toBeFalsy();
+
+    // Negando com not
+    expect(n).not.toBeTruthy();
+  });
 });
