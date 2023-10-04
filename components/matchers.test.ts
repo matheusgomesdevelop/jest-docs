@@ -111,4 +111,20 @@ describe("Usando matches", () => {
     // Para testar float utilize o toBeCloseTo ao invez do toEqual
     expect(f).toBeCloseTo(0.7);
   });
+
+  // =================================================================
+
+  // Matchers de comparação de strings.
+
+  // =================================================================
+
+  it("Deve comparar as string", () => {
+    const nome = "matheus";
+
+    // Verifica se possui uma letra
+    expect(nome).toMatch(/matheus/);
+
+    // Verifica se não possui uma letra
+    expect(nome).not.toMatch(/gomes/);
+  });
 });
