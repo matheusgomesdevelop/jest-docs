@@ -1,4 +1,4 @@
-import { dispatchError, errorMessage, sum } from "./test-utils";
+import { dispatchError, errorMessage, sum } from "../test-utils";
 
 describe("Usando matches", () => {
   // =================================================================
