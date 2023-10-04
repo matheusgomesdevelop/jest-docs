@@ -1,4 +1,4 @@
-import { sum } from "./test-utils";
+import { dispatchError, errorMessage, sum } from "./test-utils";
 
 describe("Usando matches", () => {
   // =================================================================
@@ -139,5 +139,28 @@ describe("Usando matches", () => {
 
     // Verifica se um item existe no array
     expect(carros).toContain("bmw");
+  });
+
+  // =================================================================
+
+  // Matchers de exceções
+
+  // =================================================================
+
+  it("Deve testar as exceções", () => {
+    // Ocorreu uma exceção
+    expect(() => dispatchError()).toThrow();
+
+    // Ocorreu uma exceção do tiro Error
+    expect(() => dispatchError()).toThrow(Error);
+
+    // Ocorreu uma exceção com a mensagem exata
+    expect(() => dispatchError()).toThrow(errorMessage);
+
+    // Verifica se existe a string na mensagem do erro
+    expect(() => dispatchError()).toThrow(/erro/);
+
+    // Verifica a mensagem exata do throw
+    expect(() => dispatchError()).toThrow(/Deu um erro de exceção/);
   });
 });
