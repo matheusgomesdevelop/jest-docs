@@ -127,4 +127,17 @@ describe("Usando matches", () => {
     // Verifica se não possui uma letra
     expect(nome).not.toMatch(/gomes/);
   });
+
+  // =================================================================
+
+  // Matchers de arrays
+
+  // =================================================================
+
+  it("Deve comparando arrays", () => {
+    const carros = ["bmw", "fiesta"];
+
+    // Verifica se um item existe no array
+    expect(carros).toContain("bmw");
+  });
 });
