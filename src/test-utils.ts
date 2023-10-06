@@ -25,3 +25,12 @@ export const initializeCityDatabase = () => {
 export const isCity = (cityList: Array<string>, name: string) => {
   return cityList.includes(name);
 };
+
+// Usando uma função de simulação
+
+export const util_callback = (x: number) => 42 + x;
+export function forEach(items: Array<number>, callback: (x: number) => void) {
+  for (let index = 0; index < items.length; index++) {
+    callback(items[index]);
+  }
+}
