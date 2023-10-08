@@ -5,7 +5,7 @@ import { users } from "../../src/test-utils";
 import defaultExport, { bar, foo } from "../foo-bar-baz";
 
 jest.mock("axios");
-
+jest.mock("../foo");
 jest.mock("../foo-bar-baz", () => {
   const originalModule = jest.requireActual("../foo-bar-baz");
 
@@ -44,5 +44,19 @@ describe("Simulando modulos", () => {
 
     expect(foo).toBe("mocked foo");
     expect(bar()).toBe("bar");
+  });
+
+  // ==============================================
+
+  it("Deve mudar o comportamento da implementação da função com mock", () => {
+    const fooMock = require("../foo");
+
+    // Muda o comportamento da função para retornar de uma nova maneira como você preferir
+    fooMock.mockImplementation(() => 42);
+    expect(fooMock()).toBe(42);
+
+    // Para mudar o comportamento de funcoes mais complexas
+    fooMock.mockImplementation(() => 42).mockImplementationOnce(() => 43);
+    expect(fooMock()).toBe(43);
   });
 });
