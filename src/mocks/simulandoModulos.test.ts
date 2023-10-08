@@ -59,4 +59,74 @@ describe("Simulando modulos", () => {
     fooMock.mockImplementation(() => 42).mockImplementationOnce(() => 43);
     expect(fooMock()).toBe(43);
   });
+
+  // ==============================================
+
+  describe("Deve criar nomes personalizados para os mocks", () => {
+    // ==============================================
+
+    it("Mock names", () => {
+      const myMockFn = jest
+        .fn()
+        .mockReturnValue("default")
+        .mockImplementation((scalar) => 42 + scalar)
+        .mockName("add42");
+    });
+
+    // ==============================================
+
+    describe("Matches personalizados", () => {
+      // ==============================================
+
+      const myMockFn = jest
+        .fn()
+        .mockReturnValue("default")
+        .mockImplementation((scalar) => 42 + scalar)
+        .mockName("add42");
+
+      // ==============================================
+      myMockFn(7);
+      myMockFn(3);
+
+      it("A função foi chamada pelo menos uma vez.", () => {
+        expect(myMockFn).toHaveBeenCalled();
+      });
+
+      it("A função foi chamada com o argumento: 7", () => {
+        expect(myMockFn).toHaveBeenCalledWith(3);
+      });
+
+      it("A ultima chamada da função foi executada com o parameto: 3", () => {
+        expect(myMockFn).toHaveBeenLastCalledWith(3);
+      });
+
+      it("A chamada e o nome foi escrita de acordo com o teste de snapshot", () => {
+        expect(myMockFn).toMatchSnapshot();
+      });
+
+      it("O numero de chamadas do mock foi maior que o parametro passado", () => {
+        expect(myMockFn.mock.calls.length).toBeGreaterThan(0);
+      });
+
+      it("A função mock foi chamada pelo menos uma vez com o parametro especifico", () => {
+        expect(myMockFn.mock.calls).toContainEqual([3]);
+      });
+
+      it("A ultima chamada da funcao recebeu os parametros especificos", () => {
+        expect(myMockFn.mock.calls[myMockFn.mock.calls.length - 1]).toEqual([3]);
+      });
+
+      it("Deve identificar o primeiro argumento da ultima chamada.", () => {
+        expect(myMockFn.mock.calls[myMockFn.mock.calls.length - 1][0]).toBe(3);
+      });
+
+      it("Deve verificar o nome da funcao mock executada", () => {
+        expect(myMockFn.getMockName()).toBe("add42");
+
+        myMockFn.mockName("novoNome");
+
+        expect(myMockFn.getMockName()).toBe("novoNome");
+      });
+    });
+  });
 });

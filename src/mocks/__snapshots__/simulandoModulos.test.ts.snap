@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Simulando modulos Deve criar nomes personalizados para os mocks Matches personalizados A chamada e o nome foi escrita de acordo com o teste de snapshot 1`] = `
+[MockFunction add42] {
+  "calls": [
+    [
+      7,
+    ],
+    [
+      3,
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": 49,
+    },
+    {
+      "type": "return",
+      "value": 45,
+    },
+  ],
+}
+`;
