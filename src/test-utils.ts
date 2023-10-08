@@ -39,7 +39,7 @@ export function forEach(items: Array<number>, callback: (x: number) => void) {
 
 // Users
 export const users = async () => {
-    const users = await axios.get("http://localhost:3000/users.json");
+  const users = await axios.get("http://localhost:3000/users.json");
 
-    return users.data;
+  return users.data;
 };
