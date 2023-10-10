@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Teste de Snapshot com Jest toMatchSnapshot 1`] = `
+<a
+  href="http://www.facebook.com"
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+  onTouchStart={[Function]}
+>
+  Facebook
+</a>
+`;
+
+exports[`Teste de Snapshot com Jest toMatchSnapshot 2`] = `
+{
+  "createdAt": [MockFunction],
+  "id": [MockFunction],
+  "name": "LeBron James",
+}
+`;
