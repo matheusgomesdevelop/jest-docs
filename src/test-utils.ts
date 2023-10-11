@@ -43,3 +43,4 @@ export const users = async () => {
 
   return users.data;
 };
+

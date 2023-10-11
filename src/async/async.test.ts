@@ -46,14 +46,14 @@ describe("Testando Código Assíncrono", () => {
     // ====================================
 
     it("Deve testar a resolução do async com [reject]", async () => {
-     // await expect(fetchData()).rejects.toBe("error");
+      // await expect(fetchData()).rejects.toBe("error");
     });
 
     // ====================================
 
     it("Deve testar a resolução do async com [catch]", async () => {
-     // expect.assertions(1);
-     // return fetchData().catch((e) => expect(e).toMatch("error"));
+      // expect.assertions(1);
+      // return fetchData().catch((e) => expect(e).toMatch("error"));
     });
   });
 
